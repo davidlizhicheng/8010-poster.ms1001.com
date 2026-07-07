@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="上传、下载、替换页面图片，管理海报成品与本地素材。" />
+    <title>图片编辑 | AI海报网</title>
+    <link rel="stylesheet" href="/styles.css?v=26" />
+    <link rel="stylesheet" href="/editor.css?v=1" />
+  </head>
+  <body class="corp-page editor-page">
+    <header class="site-header" id="siteHeader"></header>
+
+    <main class="editor-main">
+      <section class="editor-hero">
+        <div class="editor-hero-inner">
+          <div>
+            <p class="corp-eyebrow sm">IMAGE STUDIO</p>
+            <h1>页面图片编辑</h1>
+            <p class="editor-hero-sub">上传本地图片、下载成品、一键替换素材，支持从「我的作品」带入继续处理。</p>
+          </div>
+          <div class="editor-hero-actions">
+            <button class="btn corp-cta" id="uploadBtn" type="button">上传图片</button>
+            <button class="btn corp-ghost" id="replaceBtn" type="button" disabled>替换图片</button>
+            <button class="btn corp-ghost" id="downloadBtn" type="button" disabled>下载图片</button>
+            <a class="btn corp-ghost" href="/generate.html">返回生成器</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="editor-container">
+        <div class="editor-layout">
+          <section class="editor-panel editor-canvas-panel">
+            <div class="editor-panel-head">
+              <h2>预览</h2>
+              <span class="editor-meta" id="imageMeta">尚未加载图片</span>
+            </div>
+            <div class="editor-dropzone" id="dropzone">
+              <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden />
+              <div class="editor-empty" id="emptyState">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5" />
+                  <circle cx="8.5" cy="10" r="1.5" fill="currentColor" />
+                  <path d="M3 16l4.5-4.5 3 3L14 11l7 7" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+                <p>拖拽图片到此处，或点击上传</p>
+                <button class="btn corp-cta sm" id="emptyUploadBtn" type="button">选择图片</button>
+              </div>
+              <figure class="editor-preview" id="previewWrap" hidden>
+                <img id="previewImage" alt="当前编辑图片" />
+              </figure>
+            </div>
+            <p class="hint" id="statusLine">支持 JPG / PNG / WebP / GIF，单张建议不超过 10MB。</p>
+          </section>
+
+          <aside class="editor-side">
+            <section class="editor-panel">
+              <div class="editor-panel-head">
+                <h2>我的作品</h2>
+                <button class="btn ghost sm" id="refreshHistoryBtn" type="button">刷新</button>
+              </div>
+              <p class="hint" id="historyHint">登录后可从已生成的海报中选取编辑。</p>
+              <div id="historyGrid" class="editor-history-grid"></div>
+            </section>
+
+            <section class="editor-panel editor-tips">
+              <h3>操作说明</h3>
+              <ul>
+                <li><strong>上传</strong>：从本机选择图片作为当前编辑对象。</li>
+                <li><strong>替换</strong>：保留编辑区，换一张新图覆盖当前预览。</li>
+                <li><strong>下载</strong>：将当前预览图保存到本地（PNG 原图或上传格式）。</li>
+                <li>从右侧历史作品点击「编辑」，可带入已生成的海报继续下载或替换。</li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="siteFooter"></footer>
+    <script type="module" src="/editor.js?v=1"></script>
+  </body>
+</html>

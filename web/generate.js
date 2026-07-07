@@ -788,7 +788,11 @@ function renderGallery() {
       ? item.error ? `失败：${item.error.slice(0, 40)}` : statusText(item.status)
       : statusText(item.status);
     const modifyBtn = node.querySelector(".modify-item-btn");
+    const editBtn = node.querySelector(".edit-item-btn");
     if (failed) open.hidden = true;
+    if (!failed && item.image_path && editBtn) {
+      editBtn.href = `/editor.html?src=${encodeURIComponent(item.image_path)}&title=${encodeURIComponent(cleanTitle(item.title, "poster"))}`;
+    }
     if (!failed && item.can_modify && item.slot_id) {
       modifyBtn.hidden = false;
       modifyBtn.textContent = remaining > 0 ? `修改（剩余 ${remaining} 次）` : "修改";
@@ -862,7 +866,14 @@ function showLatest(item, slotStatus) {
     return;
   }
   box.classList.remove("empty");
-  box.innerHTML = `<img src="${item.image_path}" alt="${cleanTitle(item.title, "最新成品")}" />`;
+  const title = cleanTitle(item.title, "最新成品");
+  box.innerHTML = `<div class="gen-preview-frame">
+    <img src="${esc(item.image_path)}" alt="${esc(title)}" />
+    <div class="gen-preview-actions">
+      <a class="btn ghost sm" href="${esc(item.image_path)}" download target="_blank" rel="noreferrer">下载</a>
+      <a class="btn outline sm" href="/editor.html?src=${encodeURIComponent(item.image_path)}&title=${encodeURIComponent(title)}">图片编辑</a>
+    </div>
+  </div>`;
   state.activeSlotId = item.slot_id || state.activeSlotId;
   if (slotStatus) {
     if (!state.modifyMode && slotStatus.can_modify) {

@@ -88,6 +88,8 @@
 .theme-locked input[readonly], .theme-locked textarea[readonly], .theme-locked select:disabled { opacity: .65; cursor: not-allowed; }
 .gen-preview { min-height: 360px; border: 1px dashed #e8cd9e; border-radius: 8px; background: #fffaf2; display: grid; place-items: center; overflow: hidden; }
 .gen-preview img { width: 100%; max-height: 760px; object-fit: contain; }
+.gen-preview-frame { width: 100%; display: grid; gap: 12px; padding: 12px; }
+.gen-preview-actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 .batch-preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; width: 100%; padding: 12px; align-self: stretch; justify-self: stretch; }
 .batch-preview-card { border: 1px solid #e8cd9e; border-radius: 8px; background: #fff; overflow: hidden; display: grid; gap: 0; }
 .batch-preview-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; max-height: none; }

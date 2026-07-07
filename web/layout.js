@@ -5,6 +5,7 @@ const NAV = [
   { href: "/about.html", label: "操作说明", key: "about" },
   { href: "/pricing.html", label: "套餐说明", key: "pricing" },
   { href: "/generate.html", label: "在线生成", key: "generate" },
+  { href: "/editor.html", label: "图片编辑", key: "editor" },
   { href: "/invoice.html", label: "企业开票", key: "invoice" },
 ];
 
