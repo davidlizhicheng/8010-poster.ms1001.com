@@ -1,0 +1,2 @@
+# Poster — Python 3.10+ 必需（CentOS7 请运行 deploy/install-python311.sh）
+cryptography>=42.0.0

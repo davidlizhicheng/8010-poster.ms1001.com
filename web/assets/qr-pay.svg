@@ -1,0 +1,6 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280">
+  <rect width="280" height="280" fill="#fff"/>
+  <rect x="16" y="16" width="248" height="248" rx="12" fill="#f8f4ef" stroke="#8B1A1A" stroke-width="3"/>
+  <text x="140" y="125" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#8B1A1A">微信扫码支付</text>
+  <text x="140" y="155" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#666">请使用微信扫一扫</text>
+</svg>

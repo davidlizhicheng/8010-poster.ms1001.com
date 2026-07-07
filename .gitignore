@@ -1,0 +1,14 @@
+data/config.json
+data/apiclient_key.pem
+data/poster.db
+data/payment-screenshots/*
+data/reference-images/*
+!data/payment-screenshots/.gitkeep
+!data/reference-images/.gitkeep
+outputs/*
+!outputs/.gitkeep
+__pycache__/
+*.pyc
+.env
+deploy/production.env
+deploy/config.production.json

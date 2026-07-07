@@ -1,0 +1,17 @@
+[Unit]
+Description=AI Poster Platform (server.py)
+After=network.target
+
+[Service]
+Type=simple
+User=www
+Group=www
+WorkingDirectory=/www/wwwroot/poster.ms1001.com
+EnvironmentFile=-/www/wwwroot/poster.ms1001.com/.env
+ExecStart=__PYTHON_BIN__ __APP_DIR__/server.py
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

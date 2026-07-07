@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>企业开票 | AI品牌广告图文设计师与知识地图设计师</title>
+    <link rel="stylesheet" href="/styles.css?v=25" />
+    <link rel="stylesheet" href="/home.css?v=25" />
+  </head>
+  <body class="corp-page">
+    <header class="site-header" id="siteHeader"></header>
+    <main class="page-main">
+      <div class="corp-container legal-page">
+        <div class="page-content legal-doc invoice-page">
+          <span class="section-label">企业开票</span>
+          <h1 class="page-title">发票申请</h1>
+          <p class="page-lead">请选择已到账的支付订单提交开票申请。平台核验后将开具电子发票并发送至您填写的邮箱。</p>
+
+          <div class="invoice-panel" id="invoiceGuest" hidden>
+            <p class="hint">请先登录账号后再提交开票申请。</p>
+            <div class="invoice-panel-actions">
+              <button class="btn primary" id="invoiceAuthBtn" type="button">登录 / 注册</button>
+            </div>
+          </div>
+
+          <form class="invoice-form" id="invoicePageForm" hidden>
+            <label class="gen-field full">
+              <span>关联支付订单<em class="field-label-req">（必选）</em></span>
+              <select id="invoiceOrderSelect" required aria-label="关联支付订单">
+                <option value="">请选择已到账订单</option>
+              </select>
+              <p class="hint" id="invoiceOrderHint">仅展示已到账且尚未申请开票的订单。</p>
+            </label>
+            <label class="gen-field full">
+              <span>企业全称</span>
+              <input id="invoiceCompany" autocomplete="organization" placeholder="与营业执照一致" />
+            </label>
+            <label class="gen-field full">
+              <span>纳税人识别号</span>
+              <input id="invoiceTaxId" autocomplete="off" placeholder="15 或 18 位统一社会信用代码" />
+            </label>
+            <label class="gen-field full">
+              <span>接收邮箱</span>
+              <input id="invoiceEmail" type="email" autocomplete="email" placeholder="用于接收电子发票" />
+            </label>
+            <label class="gen-field full">
+              <span>开票金额（元）<em class="field-label-opt">（随订单自动填写）</em></span>
+              <input id="invoiceAmount" type="number" min="1" step="0.01" readonly />
+            </label>
+            <p class="hint" id="invoiceTotalHint">发票总额：¥0（含人工服务费 ¥10）</p>
+            <label class="gen-field full">
+              <span>备注<em class="field-label-opt">（选填）</em></span>
+              <textarea id="invoiceNote" rows="2" placeholder="可补充开票抬头说明等"></textarea>
+            </label>
+            <p class="hint" id="invoiceHint"></p>
+            <button class="btn corp-cta" id="invoiceSubmit" type="submit">提交开票申请</button>
+          </form>
+
+          <div class="invoice-panel" id="invoiceEmpty" hidden>
+            <p class="hint">暂无已到账且可开票的订单。请先完成套餐购买并等待到账，或前往 <a href="/pricing.html">套餐说明</a> 购买。</p>
+          </div>
+
+          <section class="legal-section invoice-notes">
+            <h2>开票说明</h2>
+            <ol class="legal-ordered">
+              <li>须先选择平台内<strong>已到账</strong>的支付订单，开票金额与订单金额一致。</li>
+              <li>开票总额 = 开票金额 + ¥10 人工服务费。</li>
+              <li>一般 3–5 个工作日内处理；如有疑问，可通过页脚公示的联系方式咨询。</li>
+              <li>本平台提供电子发票，不支持纸质发票邮寄（如有特殊需求请联系客服）。</li>
+            </ol>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer" id="siteFooter"></footer>
+    <script type="module" src="/invoice.js?v=37"></script>
+  </body>
+</html>

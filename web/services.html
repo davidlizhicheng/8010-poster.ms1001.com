@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>用户使用须知 | AI品牌广告图文设计师与知识地图设计师</title>
+    <link rel="stylesheet" href="/styles.css?v=25" />
+    <link rel="stylesheet" href="/home.css?v=18" />
+  </head>
+  <body class="corp-page">
+    <header class="site-header" id="siteHeader"></header>
+    <main class="page-main">
+      <div class="corp-container legal-page">
+        <div class="page-content legal-doc">
+          <span class="section-label">使用须知</span>
+          <h1 class="page-title">用户使用须知</h1>
+          <p class="page-lead">本手册说明平台名词含义、使用规则、次数计费、服务期计算方式及付费档位。注册或付费前请仔细阅读。</p>
+          <div id="legalContent"></div>
+          <div class="page-actions">
+            <a class="btn corp-ghost" href="/">返回首页</a>
+            <button class="btn corp-cta" id="termsRegisterBtn" type="button">注册并使用</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer" id="siteFooter"></footer>
+    <script type="module">
+      import { initPage } from "/layout.js?v=27";
+      import { legalSectionsHtml } from "/legal.js?v=22";
+      import { authReady, isUnifiedAuthMode, navigateToUnifiedLogin } from "/auth.js?v=39";
+      await initPage("services");
+      document.getElementById("legalContent").innerHTML = legalSectionsHtml();
+      await authReady;
+      document.getElementById("termsRegisterBtn")?.addEventListener("click", () => {
+        if (isUnifiedAuthMode()) {
+          navigateToUnifiedLogin("register");
+          return;
+        }
+        document.getElementById("registerModal")?.showModal();
+      });
+    </script>
+  </body>
+</html>

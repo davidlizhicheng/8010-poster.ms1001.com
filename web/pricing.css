@@ -1,0 +1,148 @@
+.pricing-page {
+  --pricing-bg: #f7efe2;
+  --pricing-paper: #fffdf8;
+  --pricing-panel: #fff8ec;
+  --pricing-ink: #15121d;
+  --pricing-text: #463d49;
+  --pricing-muted: #827381;
+  --pricing-red: #b9312d;
+  --pricing-red-dark: #5a1829;
+  --pricing-amber: #d39032;
+  --pricing-line: #ead6b5;
+  --pricing-shadow: 0 18px 42px rgba(117, 74, 25, 0.12);
+  background:
+    radial-gradient(circle at 78% 0%, rgba(185,49,45,0.10), transparent 320px),
+    linear-gradient(115deg, #fffaf1 0%, #f7efe2 62%, #f1e2d8 100%);
+  color: var(--pricing-text);
+}
+
+.pricing-page .site-header {
+  background: linear-gradient(135deg, #4a2230 0%, #321a28 38%, #1f1219 72%, #140d12 100%);
+  border-bottom: 1px solid rgba(255,200,120,.12);
+  box-shadow: 0 10px 32px rgba(20,13,18,.45);
+}
+.pricing-page .logo-title { color: #fff; }
+.pricing-page .logo-tagline { color: rgba(255,255,255,.62); }
+.pricing-page .nav-links a,
+.pricing-page .btn.ghost {
+  color: rgba(255,255,255,.78);
+}
+.pricing-page .nav-links a:hover,
+.pricing-page .nav-links a.active {
+  color: #fff;
+  background: rgba(255,255,255,.10);
+}
+.pricing-page .logo-mark {
+  background: linear-gradient(135deg, #c93432, #d58a2a);
+  box-shadow: 0 8px 18px rgba(185,49,45,.35);
+}
+.pricing-page .usage-chip {
+  background: rgba(255,243,216,.14);
+  color: #ffd89a;
+  border-color: rgba(240,205,141,.28);
+}
+.pricing-page .page-main {
+  min-height: calc(100vh - 88px);
+  padding: 46px 0 58px;
+}
+.pricing-page .page-content {
+  background: rgba(255, 253, 248, 0.72);
+  border: 1px solid var(--pricing-line);
+  border-radius: 8px;
+  padding: 34px 28px;
+  box-shadow: var(--pricing-shadow);
+}
+.pricing-page .section-label {
+  color: #b10f1d;
+  letter-spacing: 0;
+  font-weight: 900;
+}
+.pricing-page .page-title {
+  color: var(--pricing-ink);
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.08;
+  font-weight: 900;
+}
+.pricing-page .page-lead,
+.pricing-page .pricing-note {
+  color: var(--pricing-muted);
+}
+.pricing-page .page-lead strong {
+  color: var(--pricing-red);
+}
+.pricing-page .pricing-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.pricing-page .price-card {
+  background:
+    linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+    linear-gradient(90deg, rgba(211,144,50,.10) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(211,144,50,.10) 1px, transparent 1px);
+  background-size: auto, 20px 20px, 20px 20px;
+  border: 1px solid #edd8b8;
+  border-radius: 8px;
+  color: var(--pricing-text);
+  box-shadow: 0 12px 28px rgba(117,74,25,.10);
+}
+.pricing-page .price-card:hover {
+  border-color: var(--pricing-amber);
+  transform: translateY(-2px);
+}
+.pricing-page .price-card.featured {
+  border-color: var(--pricing-red);
+  box-shadow: inset 0 0 0 1px rgba(185,49,45,.16), 0 14px 30px rgba(185,49,45,.12);
+}
+.pricing-page .price-card h3 {
+  color: var(--pricing-ink);
+  font-size: 16px;
+  font-weight: 900;
+}
+.pricing-page .price-card .price {
+  color: var(--pricing-red);
+}
+.pricing-page .price-card p,
+.pricing-page .price-card ul,
+.pricing-page .price-soon {
+  color: var(--pricing-muted);
+}
+.pricing-page .price-card .tag {
+  background: linear-gradient(135deg, var(--pricing-red), var(--pricing-amber));
+}
+.pricing-page .btn.primary,
+.pricing-page .btn.corp-cta {
+  background: linear-gradient(135deg, #c93432, #d58a2a);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(185,49,45,.22);
+}
+.pricing-page .btn.outline {
+  background: #fffaf2;
+  border: 1px solid #e7cfaa;
+  color: var(--pricing-red);
+}
+.pricing-page .site-footer {
+  background: #fffaf1;
+  color: var(--pricing-muted);
+  border-top: 1px solid var(--pricing-line);
+}
+.pricing-page .footer-brand strong {
+  color: var(--pricing-ink);
+}
+.pricing-page .footer-links a:hover {
+  color: var(--pricing-red);
+}
+
+@media (max-width: 900px) {
+  .pricing-page .nav-links {
+    background: linear-gradient(160deg, #3a1c28, #1a0f16);
+    border-color: rgba(255,210,120,.14);
+  }
+  .pricing-page .nav-toggle {
+    color: #fff;
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.18);
+  }
+  .pricing-page .page-content {
+    padding: 26px 18px;
+  }
+}

@@ -1,0 +1,105 @@
+<dialog class="modal" id="loginModal">
+  <div class="modal-card modal-card-scroll">
+    <div class="modal-head">
+      <h3>登录账号</h3>
+      <button class="modal-close" id="loginClose" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body" id="loginForm">
+      <label><span>手机号</span><input id="loginPhone" type="tel" autocomplete="tel" /></label>
+      <label><span>密码</span><input id="loginPassword" type="password" autocomplete="current-password" /></label>
+      <p class="hint" id="loginHint"></p>
+    </div>
+    <div class="modal-actions modal-actions-sticky">
+      <button class="btn ghost" id="loginCancel" type="button">取消</button>
+      <button class="btn primary" id="loginSubmit" type="button">登录</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="registerModal">
+  <div class="modal-card modal-card-scroll">
+    <div class="modal-head">
+      <h3>注册账号</h3>
+      <button class="modal-close" id="registerClose" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body" id="registerForm">
+      <p class="hint">注册后免费体验 1 张；满意后可购买 ¥50 个人体验，企业批量请走公司转账，最低 ¥200。</p>
+      <label><span>手机号</span><input id="regPhone" type="tel" autocomplete="tel" placeholder="11 位手机号" /></label>
+      <label><span>微信号</span><input id="regWechat" autocomplete="off" placeholder="用于售后与开票联系" /></label>
+      <label><span>单位 / 机构</span><input id="regOrg" autocomplete="organization" placeholder="学校、企业或工作室名称" /></label>
+      <label><span>密码</span><input id="regPassword" type="password" autocomplete="new-password" minlength="6" placeholder="至少 6 位" /></label>
+      <label class="check-row">
+        <input id="registerAgree" type="checkbox" />
+        <span>我已阅读并同意 <a href="/services.html" target="_blank" rel="noopener">《用户使用须知》</a></span>
+      </label>
+      <p class="hint" id="registerHint"></p>
+    </div>
+    <div class="modal-actions modal-actions-sticky">
+      <button class="btn ghost" id="registerCancel" type="button">取消</button>
+      <button class="btn primary" id="registerSubmit" type="button" disabled>注册账号</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="paymentModal">
+  <div class="modal-card modal-card-scroll wide">
+    <div class="modal-head">
+      <h3>套餐购买</h3>
+      <button class="modal-close" id="paymentClose" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="hint" id="paymentModeHint">请使用微信扫码支付。</p>
+      <div class="pay-layout">
+        <div class="pay-qr">
+          <img id="paymentQrImage" src="/assets/qr-pay.svg" alt="支付二维码" />
+          <p id="paymentAmountText" class="pay-amount"></p>
+        </div>
+        <div class="pay-form">
+          <div id="bulkFields" class="bulk-fields" hidden>
+            <label><span>购买数量（20 张起，公司转账最低 ¥200）</span>
+              <input id="bulkQuantity" type="number" min="20" step="1" value="20" />
+            </label>
+            <p class="hint" id="bulkAmountHint">应付 ¥200</p>
+          </div>
+          <div id="paymentPhoneBlock">
+            <label><span>支付手机号</span><input id="paymentPhone" type="tel" /></label>
+          </div>
+          <div id="paymentScreenshotBlock">
+            <label class="file-label">
+              <span>支付截图</span>
+              <input id="paymentScreenshot" type="file" accept="image/jpeg,image/png,image/webp" hidden />
+              <button class="btn outline" id="paymentScreenshotPick" type="button">选择截图</button>
+              <span id="paymentScreenshotName" class="file-name">JPG / PNG / WebP，最大 4MB，提交后默认自动开通</span>
+            </label>
+            <img id="paymentScreenshotPreview" class="screenshot-preview" hidden alt="截图预览" />
+          </div>
+          <label class="check-row" id="paymentAgreeWrap">
+            <input id="paymentAgree" type="checkbox" />
+            <span>我已阅读并同意 <a href="/services.html" target="_blank" rel="noopener">《用户使用须知》</a></span>
+          </label>
+          <p class="hint" id="paymentHint"></p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions modal-actions-sticky">
+      <button class="btn ghost" id="paymentCancel" type="button">取消</button>
+      <button class="btn primary" id="paymentSubmit" type="button" disabled>提交并开通</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="paymentsModal">
+  <div class="modal-card modal-card-scroll wide">
+    <div class="modal-head">
+      <h3>我的支付记录</h3>
+      <button class="modal-close" id="paymentsCloseX" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-body">
+      <p class="hint">展示您提交的套餐购买与到账情况</p>
+      <div id="paymentsList" class="payments-list"></div>
+    </div>
+    <div class="modal-actions modal-actions-sticky">
+      <button class="btn ghost" id="paymentsClose" type="button">关闭</button>
+    </div>
+  </div>
+</dialog>

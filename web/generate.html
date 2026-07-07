@@ -1,0 +1,219 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>在线生成 | AI品牌广告图文设计师与知识地图设计师</title>
+    <link rel="stylesheet" href="/styles.css?v=25" />
+    <link rel="stylesheet" href="/generate.css?v=28" />
+  </head>
+  <body class="corp-page gen-page">
+    <header class="site-header" id="siteHeader"></header>
+
+    <main class="gen-main">
+      <div class="gen-hero-bar">
+        <div class="gen-hero-inner">
+          <div>
+            <p class="corp-eyebrow sm">AI BRAND DESIGNER</p>
+            <h1>AI品牌广告图文设计师与知识地图设计师</h1>
+            <p class="gen-hero-sub">零基础一键生成您的海报、广告、效果图、画册、岗位学习地图、Q&A知识卡片、自媒体图片、简历等设计作品</p>
+          </div>
+          <div class="gen-hero-badge" id="studioBadge">请先登录</div>
+        </div>
+      </div>
+
+      <div class="gen-container">
+        <div class="gen-layout">
+          <div class="gen-workflow">
+          <section class="gen-panel gen-form-panel">
+            <div class="gen-panel-head">
+              <h2>创作参数</h2>
+              <span class="gen-panel-sub" id="genPanelSub">单张模式支持同主题多次修改；批量模式一次出多张同系列海报</span>
+            </div>
+            <form class="gen-form" id="posterForm">
+              <div class="gen-form-grid">
+                <label class="gen-field">
+                  <span>项目名称<em class="field-label-opt">（选填）</em></span>
+                  <input id="campaignName" placeholder="例如：春季招生主视觉，可不填" />
+                </label>
+                <label class="gen-field template-field full">
+                  <div class="template-field-head">
+                    <span>模板类型<em class="field-label-opt">（选填，可不选）</em></span>
+                    <div class="template-group-actions">
+                      <button class="link-btn-dark" id="clearTemplateBtn" type="button">取消选择</button>
+                      <button class="link-btn-dark" id="expandAllTemplates" type="button">全部展开</button>
+                      <button class="link-btn-dark" id="collapseAllTemplates" type="button">全部折叠</button>
+                    </div>
+                  </div>
+                  <select id="templateKey" class="template-native-select" aria-label="模板类型">
+                    <option value="">不选择模板</option>
+                    <option value="study-card">学习训练卡</option>
+                    <option value="course-sale">课程推广海报</option>
+                    <option value="community">社群裂变海报</option>
+                    <option value="festival">节日促销海报</option>
+                    <option value="brand-event">品牌活动海报</option>
+                    <option value="social-cover">自媒体封面配图</option>
+                    <option value="flyer-print">宣传单折页主视觉</option>
+                    <option value="product-poster">产品宣传海报</option>
+                    <option value="recruitment">招聘招募海报</option>
+                    <option value="exhibition">展会展架物料</option>
+                    <option value="menu-price">菜单价目表</option>
+                    <option value="certificate">证书奖状</option>
+                    <option value="invitation">邀请函</option>
+                    <option value="ecommerce">电商主图详情图</option>
+                    <option value="office-infographic">职场信息长图</option>
+                    <option value="edu-illustration">科普教育图解</option>
+                    <option value="ip-creative">IP 文创视觉</option>
+                    <option value="livestream-bg">直播间背景</option>
+                    <option value="spatial-scene">空间虚拟效果图</option>
+                    <option value="custom-vertical">细分定制竖版</option>
+                    <option value="speech-outline">演讲提纲</option>
+                  </select>
+                  <div class="template-tile-grid" id="templateTiles" role="radiogroup" aria-label="模板类型"></div>
+                </label>
+                <label class="gen-field">
+                  <span>领域 / 科目<em class="field-label-opt">（选填）</em></span>
+                  <input id="subject" placeholder="例如：高中数学 / 企业品牌，可不填" />
+                </label>
+                <label class="gen-field">
+                  <span>海报尺寸<em class="field-label-opt">（必选）</em></span>
+                  <select id="posterSize" aria-label="海报尺寸">
+                    <option value="1024x1536">竖版海报 · 1024 x 1536</option>
+                    <option value="1024x1024">方形海报 · 1024 x 1024</option>
+                    <option value="1536x1024">横版封面 · 1536 x 1024</option>
+                    <option value="auto">自动匹配</option>
+                    <option value="custom">自定义尺寸</option>
+                  </select>
+                  <div class="custom-size-fields" id="customSizeFields" hidden>
+                    <input id="customWidth" type="number" inputmode="numeric" min="16" max="3840" step="16" placeholder="宽" aria-label="自定义宽度" />
+                    <span aria-hidden="true">×</span>
+                    <input id="customHeight" type="number" inputmode="numeric" min="16" max="3840" step="16" placeholder="高" aria-label="自定义高度" />
+                  </div>
+                  <p class="hint custom-size-hint" id="customSizeHint" hidden>宽高需为 16 的倍数，最长边 ≤3840，比例 ≤3:1。</p>
+                </label>
+                <label class="gen-field">
+                  <span>目标受众<em class="field-label-opt">（选填）</em></span>
+                  <input id="audience" placeholder="例如：家长、学生、企业客户，可不填" />
+                </label>
+              </div>
+              <div class="gen-mode-switch" id="genModeSwitch" role="tablist" aria-label="生成模式">
+                <button class="gen-mode-btn active" id="modeSingleBtn" type="button" role="tab" aria-selected="true">单张生成</button>
+                <button class="gen-mode-btn" id="modeBatchBtn" type="button" role="tab" aria-selected="false">批量生成</button>
+              </div>
+              <div id="singleModePanel">
+                <label class="gen-field full">
+                  <span>设计主题<em class="field-label-opt">（选填，单行即可）</em></span>
+                  <textarea id="singleTitleInput" rows="2" placeholder="例如：春季品牌活动主视觉海报 / AI赋能教育的演讲提纲"></textarea>
+                  <p class="hint" id="singleModeHint">填写主题与补充说明即可生成；修改时保持主题不变，在下方填写修改说明。</p>
+                </label>
+                <label class="gen-field full">
+                  <span>补充说明<em class="field-label-opt">（选填，风格与结构）</em></span>
+                  <div class="prompt-tool-row">
+                    <button class="btn outline sm" id="autoPromptBtn" type="button">自动提示词</button>
+                    <span class="hint" id="autoPromptHint"></span>
+                  </div>
+                  <textarea id="singlePromptInput" rows="3" placeholder="例如：蓝白配色、大标题居中、底部留二维码位。不填则按模板默认结构生成。"></textarea>
+                </label>
+              </div>
+              <div id="batchModePanel" hidden>
+                <label class="gen-field full">
+                  <span>系列清单<em class="field-label-req">（必填，每行一张，2–100 张）</em></span>
+                  <div class="prompt-tool-row">
+                    <button class="btn outline sm" id="autoBatchPlanBtn" type="button" title="根据你的需求描述，自动拆成多张海报标题">智能拆分主题</button>
+                    <label class="batch-plan-count-label">张数<input id="batchPlanCount" type="number" min="2" max="100" value="6" aria-label="规划张数" /></label>
+                    <span class="hint" id="autoBatchPlanHint"></span>
+                  </div>
+                  <p class="hint batch-plan-intro">只需先写一句总体需求（如「春季招生系列海报，蓝白金色系」），点「智能拆分主题」会自动列出每一张的标题；也可手动填写，每行一张。</p>
+                  <textarea id="batchItemsInput" rows="6" placeholder="每行一张海报的标题或内容要点。&#10;金句卡片可用竖线分隔，例如：&#10;11|为什么战略再好执行也会变形？|战略决定方向，执行决定生死|方法：把战略拆成可执行动作"></textarea>
+                  <p class="hint" id="batchItemsHint">每行对应一张独立海报，首张确定风格后，后续自动保持同系列视觉。</p>
+                </label>
+                <label class="gen-field full">
+                  <span>系列风格<em class="field-label-req">（必填，全系列共用）</em></span>
+                  <textarea id="batchPromptInput" rows="5" placeholder="描述全系列统一的版式、配色、字体层级与画面结构。例如：16:9 横版商业金句插画，蓝白金色系，顶部问题 + 中部金句 + 底部方法，关键字高亮。"></textarea>
+                </label>
+                <ul class="batch-feature-list hint">
+                  <li>同一项目名、模板、参考图与系列风格，全系列共用</li>
+                  <li>首张生成后作为风格参考，后续张自动跟版</li>
+                  <li>每张单独出图，不会拼成一张大图</li>
+                  <li>某一张失败时，该张额度自动退还</li>
+                </ul>
+              </div>
+              <label class="gen-field full file-label">
+                <span>参考图<em class="field-label-opt">（选填，支持多图）</em></span>
+                <div class="gen-file-row">
+                  <button class="btn outline sm" id="referencePickBtn" type="button">选择参考图</button>
+                  <span id="referenceImagesName" class="file-name">辅助风格与配色，每张最大 2MB</span>
+                </div>
+                <input id="referenceImages" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden />
+              </label>
+              <div id="referencePreview" class="ref-preview-grid"></div>
+              <label class="gen-field full" id="creditBucketWrap" hidden>
+                <span>本次使用额度<em class="field-label-opt">（有多档套餐时请手动选择）</em></span>
+                <select id="creditBucketSelect" aria-label="本次使用额度"></select>
+                <p class="hint" id="creditBucketHint"></p>
+              </label>
+              <p class="hint" id="modifyRemainHint" hidden></p>
+              <label class="gen-field full" id="modifyNotesWrap" hidden>
+                <span>修改说明<em class="field-label-opt">（保持主题不变）</em></span>
+                <textarea id="modifyNotes" rows="2" placeholder="例如：标题加大、背景改深蓝"></textarea>
+              </label>
+              <p class="hint gen-hint" id="generationHint"></p>
+              <div class="gen-actions">
+                <button class="btn corp-cta full" id="generateBtn" type="submit">开始生成设计图</button>
+                <button class="btn corp-ghost full" id="modifyBtn" type="button" hidden>继续修改</button>
+                <button class="btn ghost full" id="newPosterBtn" type="button" hidden>新建设计图<em class="field-label-opt">（换主题）</em></button>
+              </div>
+              <p class="hint" id="statusLine">登录后即可开始创作。</p>
+            </form>
+          </section>
+
+            <section class="gen-panel gen-preview-panel">
+              <div class="gen-panel-head">
+                <h2 id="previewPanelTitle">最新成品</h2>
+              </div>
+              <div id="latestPreview" class="gen-preview empty">
+                <div class="gen-preview-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.5"/></svg>
+                  <p>生成完成后将在此展示</p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <aside class="gen-side">
+            <section class="gen-panel gen-history-panel">
+              <div class="gen-panel-head">
+                <h2>我的作品</h2>
+                <div class="panel-actions">
+                  <button class="btn ghost sm" id="myPaymentsBtn" type="button">支付记录</button>
+                  <button class="btn ghost sm" id="refreshBtn" type="button">刷新</button>
+                </div>
+              </div>
+              <p class="hint" id="historySummary"></p>
+              <div id="gallery" class="gallery compact"></div>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="siteFooter"></footer>
+
+    <template id="posterCardTemplate">
+      <article class="poster-card">
+        <a class="poster-link" target="_blank" rel="noreferrer"><img alt="" /></a>
+        <div class="poster-body">
+          <span class="poster-state"></span>
+          <h4></h4>
+          <div class="poster-actions">
+            <a target="_blank" rel="noreferrer">下载</a>
+            <button class="link-btn modify-item-btn" type="button" hidden>修改</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="/generate.js?v=39"></script>
+  </body>
+</html>
+

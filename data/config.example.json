@@ -1,0 +1,36 @@
+{
+  "base_url": "https://api.fenno.ai/v1",
+  "api_key": "在此填写你的 API Key",
+  "image_model": "gpt-image-2",
+  "minimax_base_url": "https://api.minimax.io/v1",
+  "minimax_api_key": "",
+  "minimax_model": "MiniMax-M3",
+  "central_billing_url": "https://ai.ms1001.com/billing",
+  "size": "1024x1536",
+  "quality": "medium",
+  "unit_cost": 1.35,
+  "suggested_price": 9.9,
+  "brand_name": "AI品牌广告图文设计师与知识地图设计师",
+  "support_phone": "",
+  "support_wechat": "",
+  "payment_qr": {
+    "default": "/assets/wechat-pay-50.png",
+    "50": "/assets/wechat-pay-50.png",
+    "300": "/assets/wechat-pay-300.png",
+    "1000": "/assets/wechat-pay-1000.png",
+    "5000": "/assets/wechat-pay-5000.png",
+    "10000": "/assets/wechat-pay-10000.png",
+    "bulk": "/assets/wechat-pay-1000.png"
+  },
+  "wechat_pay": {
+    "enabled": false,
+    "mch_id": "",
+    "app_id": "",
+    "api_v3_key": "",
+    "serial_no": "",
+    "private_key_path": "data/apiclient_key.pem",
+    "notify_url": "https://ai.ms1001.com/api/payment/wechat/notify",
+    "trade_type": "native"
+  },
+  "max_items_per_job": 100
+}
