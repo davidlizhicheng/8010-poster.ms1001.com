@@ -5,7 +5,7 @@ import {
   isUnifiedAuthMode,
   navigateToUnifiedLogin,
   syncHeaderAuthUI,
-} from "/auth.js?v=39";
+} from "/auth.js?v=40";
 
 await initPage("invoice");
 await authReady;

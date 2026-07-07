@@ -1,5 +1,5 @@
 import { initPage } from "/layout.js?v=27";
-import { authReady, getAuthState, isUnifiedAuthMode, navigateToUnifiedLogin, syncHeaderAuthUI } from "/auth.js?v=39";
+import { authReady, getAuthState, isUnifiedAuthMode, navigateToUnifiedLogin, syncHeaderAuthUI } from "/auth.js?v=40";
 
 await initPage("home");
 await authReady;
@@ -22,17 +22,26 @@ function syncHomePage(state = getAuthState()) {
   }
 }
 
+const GENERATE_PATH = "/generate.html";
+
+function postLoginGenerateTarget() {
+  return `${window.location.origin}${GENERATE_PATH}`;
+}
+
 function goGenerateOrRegister() {
-  const user = window.__posterUser;
+  const user = window.__posterUser || getAuthState()?.user;
   if (!user) {
     if (isUnifiedAuthMode()) {
-      navigateToUnifiedLogin("register");
+      sessionStorage.setItem("poster_after_login", GENERATE_PATH);
+      const target = postLoginGenerateTarget();
+      window.suatStoreIntendedRedirect?.(target);
+      navigateToUnifiedLogin("login", target);
       return;
     }
     $("registerModal")?.showModal();
     return;
   }
-  window.location.href = "/generate.html";
+  window.location.href = GENERATE_PATH;
 }
 
 document.getElementById("heroStartBtn")?.addEventListener("click", goGenerateOrRegister);

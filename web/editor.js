@@ -1,5 +1,5 @@
 import { initPage } from "/layout.js?v=28";
-import { authReady, getAuthState } from "/auth.js?v=39";
+import { authReady, getAuthState } from "/auth.js?v=40";
 
 const $ = (id) => document.getElementById(id);
 

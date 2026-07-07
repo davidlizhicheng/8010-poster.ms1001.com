@@ -1,6 +1,6 @@
 import { initPage } from "/layout.js?v=27";
 import { FALLBACK_PLANS, renderPricingGrid } from "/plans.js?v=13";
-import { authReady, getAuthState, isUnifiedAuthMode, navigateToUnifiedLogin, syncHeaderAuthUI } from "/auth.js?v=39";
+import { authReady, getAuthState, isUnifiedAuthMode, navigateToUnifiedLogin, syncHeaderAuthUI } from "/auth.js?v=40";
 
 await initPage("pricing");
 await authReady;

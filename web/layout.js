@@ -1,4 +1,4 @@
-import { ensureAuthBound } from "/auth.js?v=39";
+import { ensureAuthBound } from "/auth.js?v=40";
 
 const NAV = [
   { href: "/services.html", label: "使用须知", key: "services" },

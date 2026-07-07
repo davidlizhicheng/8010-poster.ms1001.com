@@ -2,7 +2,7 @@
   await new Promise((resolve, reject) => {
     if (window.suatAccessToken) return resolve();
     const script = document.createElement("script");
-    script.src = "/suat_auth_redirect.js?v=2";
+    script.src = "/suat_auth_redirect.js?v=4";
     script.onload = resolve;
     script.onerror = reject;
     document.head.appendChild(script);
@@ -103,7 +103,9 @@ function unifiedLoginUrl(tab = "login", redirectUrl = "") {
 }
 
 function navigateToUnifiedLogin(tab = "login", redirectUrl = "") {
-  window.location.href = unifiedLoginUrl(tab, redirectUrl);
+  const target = redirectUrl || window.location.href;
+  window.suatStoreIntendedRedirect?.(target);
+  window.location.href = unifiedLoginUrl(tab, target);
 }
 
 export { navigateToUnifiedLogin, isUnifiedAuthMode };
@@ -658,12 +660,27 @@ function bindAuth() {
   });
 }
 
+function followPosterAfterLogin() {
+  const path = sessionStorage.getItem("poster_after_login");
+  if (!path || !path.startsWith("/") || !authState.user) return false;
+  if (location.pathname === path || location.pathname.endsWith(path.replace(/^\//, ""))) {
+    sessionStorage.removeItem("poster_after_login");
+    return false;
+  }
+  sessionStorage.removeItem("poster_after_login");
+  const token = getStoredUnifiedToken();
+  const url = token && window.suatAppendTokenToUrl ? window.suatAppendTokenToUrl(`${location.origin}${path}`, token) : path;
+  window.location.href = url;
+  return true;
+}
+
 async function initAuthModule() {
   ensureAuthBound();
   captureUnifiedTokenFromUrl();
   await loadPaymentConfig();
   try {
     await refreshAuth();
+    if (followPosterAfterLogin()) return;
     const pending = sessionStorage.getItem("poster_pending_plan");
     if (pending && authState.user) {
       sessionStorage.removeItem("poster_pending_plan");
